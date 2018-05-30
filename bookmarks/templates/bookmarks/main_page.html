@@ -1,7 +1,16 @@
 <html>
     <head><title>Django Bookmarks</title></head>
     <body>
-    <h1>welcome to django bookmarks</h1>
-    <p>where u can store and share bookmarks</p>
+        <h1>welcome to django bookmarks</h1>
+        {% if user.username %}
+            <p> Welcome {{user.username }}!
+                here you can store and share bookmarks.
+            </p>
+        {% else %}
+            <p> welcome anonymous user!
+                you need to <a href = "/login/">login</a>
+                before u can store and share books 
+            </p>
+        {% endif %}
     </body>
-    </html>
+</html>
