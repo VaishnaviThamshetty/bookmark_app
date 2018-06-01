@@ -4,8 +4,7 @@ from django.shortcuts import render
 from django.template import loader
 
 def main_page(request):
-    template = loader.get_template('bookmarks/main_page.html')
-    return HttpResponse(template.render({}, request))
+    return render(request, 'bookmarks/main_page.html',{})
     
 def user_page(request, username):
     try:
@@ -18,5 +17,5 @@ def user_page(request, username):
         'username':username,
         'bookmarks':bookmarks
             }
-    return HttpResponse(template.render(context, request))
+    return render(request ,'bookmarks/user_page.html',context )
     
